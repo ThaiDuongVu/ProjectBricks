@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
         get => score;
         set
         {
-            if (value < MaxScore)
+            if (value > MaxScore)
             {
                 score = MaxScore;
                 return;
