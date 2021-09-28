@@ -48,7 +48,7 @@ public class Grid : MonoBehaviour
         inputManager.Game.Direction.performed += OnDirectionPerformed;
         inputManager.Game.KeyDirection.performed += OnKeyDirectionPerformed;
         // Test game over functionality
-        inputManager.Debug.Test.performed += (InputAction.CallbackContext context) => { GameController.Instance.GameOver(); };
+        inputManager.Debug.Test.performed += (InputAction.CallbackContext context) => { SaveGridData(); };
 
         inputManager.Enable();
     }
@@ -96,10 +96,22 @@ public class Grid : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        for (int x = 0; x < gridSize.x; x++) for (int y = 0; y < gridSize.y; y++) occupiedGrid[x, y] = null;
+        if (PlayerPrefs.GetInt("LastGameOver", 0) == 0)
+        {
+            // Spawn initial blocks on grid
+            for (int x = 0; x < gridSize.x; x++) for (int y = 0; y < gridSize.y; y++) occupiedGrid[x, y] = null;
+            for (int i = 0; i < Random.Range(initBlockNumbersRange.x, initBlockNumbersRange.y); i++) StartCoroutine(SpawnRandomBlock());
 
-        // Spawn initial blocks on grid
-        for (int i = 0; i < Random.Range(initBlockNumbersRange.x, initBlockNumbersRange.y); i++) StartCoroutine(SpawnNewBlock());
+            GameController.Instance.Score = 0;
+            SaveGridData();
+        }
+        else
+        {
+            // Spawn blocks from save data
+            LoadGridData();
+        }
+
+        PlayerPrefs.SetInt("LastGameOver", 1);
     }
 
     /// <summary>
@@ -112,9 +124,9 @@ public class Grid : MonoBehaviour
     }
 
     /// <summary>
-    /// Spawn a new block on the grid.
+    /// Spawn a new block at a random position on the grid.
     /// </summary>
-    private IEnumerator SpawnNewBlock()
+    private IEnumerator SpawnRandomBlock()
     {
         yield return new WaitForSeconds(SpawnDelay);
 
@@ -128,9 +140,22 @@ public class Grid : MonoBehaviour
             block.GridPosition = gridSpawnPosition;
             blocks.Add(block);
             occupiedGrid[gridSpawnPosition.x + 2, gridSpawnPosition.y + 2] = block;
-
-            if (GridFull()) GameController.Instance.GameOver();
         }
+    }
+
+    /// <summary>
+    /// Spawn a new block at a defined position on the grid.
+    /// </summary>
+    private IEnumerator SpawnDefinedBlock(int x, int y, int type)
+    {
+        yield return new WaitForSeconds(SpawnDelay);
+
+        var gridSpawnPosition = new Vector2Int(x - 2, y - 2);
+        var spawnPosition = gridSpawnPosition * gridBlockUnit;
+        var block = Instantiate(blockPrefabs[type], spawnPosition, Quaternion.identity);
+        block.GridPosition = gridSpawnPosition;
+        blocks.Add(block);
+        occupiedGrid[gridSpawnPosition.x + 2, gridSpawnPosition.y + 2] = block;
     }
 
     /// <summary>
@@ -151,8 +176,10 @@ public class Grid : MonoBehaviour
         foreach (var block in blocks) block.Move(direction, maxGridPosition, minGridPosition, gridBlockUnit, occupiedGrid);
         swipeCooldown = MaxSwipeCooldown;
 
-        StartCoroutine(SpawnNewBlock());
+        StartCoroutine(SpawnRandomBlock());
+        SaveGridData();
         CheckGrid();
+        if (GridFull()) GameController.Instance.GameOver();
     }
 
     /// <summary>
@@ -405,7 +432,7 @@ public class Grid : MonoBehaviour
     }
 
     /// <summary>
-    /// Check if 4 blocks in a 2x2 square are all of the same color
+    /// Check if 4 blocks in a 2x2 square are all of the same color.
     /// </summary>
     private void CheckGrid4()
     {
@@ -439,5 +466,45 @@ public class Grid : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// Save all blocks type information of current grid to player preferences.
+    /// TODO: Consider using encoded binary files instead.
+    /// </summary>
+    private void SaveGridData()
+    {
+        for (int x = 0; x < occupiedGrid.GetLength(0); x++)
+        {
+            for (int y = 0; y < occupiedGrid.GetLength(1); y++)
+            {
+                if (!occupiedGrid[x, y]) PlayerPrefs.SetInt("Grid" + x.ToString() + y.ToString(), ((int)BlockType.None));
+                else PlayerPrefs.SetInt("Grid" + x.ToString() + y.ToString(), ((int)occupiedGrid[x, y].type));
+            }
+        }
+
+        PlayerPrefs.SetInt("CurrentScore", GameController.Instance.Score);
+    }
+
+    /// <summary>
+    /// Load all blocks type from player preferences and spawn.
+    /// </summary>
+    private void LoadGridData()
+    {
+        for (int x = 0; x < occupiedGrid.GetLength(0); x++)
+        {
+            for (int y = 0; y < occupiedGrid.GetLength(1); y++)
+            {
+                if (PlayerPrefs.GetInt("Grid" + x.ToString() + y.ToString(), ((int)BlockType.None)) == ((int)BlockType.None))
+                {
+                    occupiedGrid[x, y] = null;
+                    continue;
+                }
+                
+                StartCoroutine(SpawnDefinedBlock(x, y, (PlayerPrefs.GetInt("Grid" + x.ToString() + y.ToString(), ((int)BlockType.None)))));
+            }
+        }
+
+        GameController.Instance.Score = PlayerPrefs.GetInt("CurrentScore", 0);
     }
 }

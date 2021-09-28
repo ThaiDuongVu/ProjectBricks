@@ -71,9 +71,7 @@ public class GameController : MonoBehaviour
         Application.targetFrameRate = 60;
         EffectsController.Instance.SetDepthOfFieldEnabled(false);
 
-        Score = 0;
         highScore = PlayerPrefs.GetInt("HighScore", 0);
-
         uiMessage.SetActive(false);
     }
 
@@ -114,6 +112,8 @@ public class GameController : MonoBehaviour
 
         EffectsController.Instance.SetDepthOfFieldEnabled(true);
         gameOverMenu.gameObject.SetActive(true);
+
+        PlayerPrefs.SetInt("LastGameOver", 0);
     }
 
     /// <summary>
