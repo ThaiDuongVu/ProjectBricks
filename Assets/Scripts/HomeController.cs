@@ -15,7 +15,7 @@ public class HomeController : MonoBehaviour
     private void Start()
     {
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
-        EffectsController.Instance.SetDepthOfFieldEnabled(true);
+        // EffectsController.Instance.SetDepthOfFieldEnabled(true);
     }
 
     /// <summary>
