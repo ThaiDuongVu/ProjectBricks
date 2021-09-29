@@ -253,9 +253,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: Load
-        m_Mode: 5
+        m_TargetAssemblyTypeName: HomeController, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -353,6 +353,10 @@ PrefabInstance:
     - target: {fileID: 8457082232815096965, guid: db3dfb9c2ce860e48ad94530a4aeadb9, type: 3}
       propertyPath: m_Name
       value: Title
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457082232815096965, guid: db3dfb9c2ce860e48ad94530a4aeadb9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8457082232815097018, guid: db3dfb9c2ce860e48ad94530a4aeadb9, type: 3}
       propertyPath: m_Pivot.x
@@ -537,6 +541,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 269066961469970063, guid: e181fe3b7460e7d4c9f56d3600c10d39, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 269066962184331226, guid: e181fe3b7460e7d4c9f56d3600c10d39, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5665022569182562034, guid: e181fe3b7460e7d4c9f56d3600c10d39, type: 3}
