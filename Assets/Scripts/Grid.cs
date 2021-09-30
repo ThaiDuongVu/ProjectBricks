@@ -48,7 +48,7 @@ public class Grid : MonoBehaviour
         inputManager.Game.Direction.performed += OnDirectionPerformed;
         inputManager.Game.KeyDirection.performed += OnKeyDirectionPerformed;
         // Test game over functionality
-        // inputManager.Debug.Test.performed += (InputAction.CallbackContext context) => { SaveGridData(); };
+        inputManager.Debug.Test.performed += (InputAction.CallbackContext context) => { PlayerPrefs.DeleteAll(); };
 
         inputManager.Enable();
     }

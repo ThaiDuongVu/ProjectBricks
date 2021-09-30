@@ -8,15 +8,23 @@ public class TutorialController : MonoBehaviour
 
     /// <summary>
     /// Unity Event function.
+    /// On current object enabled.
+    /// </summary>
+    private void OnEnable()
+    {
+        tutorialProgress = 0;
+        foreach (var element in tutorialElements) element.SetActive(false);
+        tutorialElements[0].SetActive(true);
+    }
+
+    /// <summary>
+    /// Unity Event function.
     /// Initialize before first frame update.
     /// </summary>
     private void Start()
     {
         gameObject.SetActive(false);
-        tutorialProgress = 0;
         maxTutorialProgress = tutorialElements.Length - 1;
-        foreach (var element in tutorialElements) element.SetActive(false);
-        tutorialElements[0].SetActive(true);
     }
 
     /// <summary>
