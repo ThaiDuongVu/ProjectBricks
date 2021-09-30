@@ -7,6 +7,10 @@ public class HomeController : MonoBehaviour
 
     [SerializeField] private Menu mainMenu;
     [SerializeField] private Menu continueMenu;
+    [SerializeField] private Menu tutorialMenu;
+
+    private int tutorialProgress;
+    [SerializeField] private GameObject[] tutorialElements;
 
     /// <summary>
     /// Unity Event function.
@@ -24,7 +28,7 @@ public class HomeController : MonoBehaviour
     public void Play()
     {
         EffectsController.Instance.SetDepthOfFieldEnabled(true);
-        
+
         // Check if player has a game saved
         if (PlayerPrefs.GetInt("LastGameOver", 0) == 0)
         {
@@ -44,5 +48,25 @@ public class HomeController : MonoBehaviour
     public void ResetSaveState()
     {
         PlayerPrefs.SetInt("LastGameOver", 0);
+    }
+
+    /// <summary>
+    /// Play a sequence of tutorial messages.
+    /// </summary>
+    public void EnterTutorialMode()
+    {
+        EffectsController.Instance.SetDepthOfFieldEnabled(true);
+        mainMenu.gameObject.SetActive(false);
+        tutorialMenu.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Advance to the next stage of the tutorial.
+    /// </summary>
+    public void AdvanceTutorial()
+    {
+        tutorialElements[tutorialProgress].SetActive(false);
+        tutorialProgress++;
+        tutorialElements[tutorialProgress].SetActive(true);
     }
 }
