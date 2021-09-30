@@ -3,14 +3,28 @@ using UnityEngine.UI;
 
 public class HomeController : MonoBehaviour
 {
+    // Use a singleton pattern to make the class globally accessible
+
+    #region Singleton
+
+    private static HomeController HomeControllerInstance;
+
+    public static HomeController Instance
+    {
+        get
+        {
+            if (HomeControllerInstance == null) HomeControllerInstance = FindObjectOfType<HomeController>();
+            return HomeControllerInstance;
+        }
+    }
+
+    #endregion
+
     [SerializeField] private Text highScoreText;
 
     [SerializeField] private Menu mainMenu;
     [SerializeField] private Menu continueMenu;
-    [SerializeField] private Menu tutorialMenu;
-
-    private int tutorialProgress;
-    [SerializeField] private GameObject[] tutorialElements;
+    [SerializeField] private TutorialController tutorial;
 
     /// <summary>
     /// Unity Event function.
@@ -53,20 +67,20 @@ public class HomeController : MonoBehaviour
     /// <summary>
     /// Play a sequence of tutorial messages.
     /// </summary>
-    public void EnterTutorialMode()
+    public void EnterTutorial()
     {
         EffectsController.Instance.SetDepthOfFieldEnabled(true);
         mainMenu.gameObject.SetActive(false);
-        tutorialMenu.gameObject.SetActive(true);
+        tutorial.gameObject.SetActive(true);
     }
 
     /// <summary>
-    /// Advance to the next stage of the tutorial.
+    /// Finish tutorial and return to home screen.
     /// </summary>
-    public void AdvanceTutorial()
+    public void EndTutorial()
     {
-        tutorialElements[tutorialProgress].SetActive(false);
-        tutorialProgress++;
-        tutorialElements[tutorialProgress].SetActive(true);
+        EffectsController.Instance.SetDepthOfFieldEnabled(false);
+        mainMenu.gameObject.SetActive(true);
+        tutorial.gameObject.SetActive(false);
     }
 }
