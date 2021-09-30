@@ -43,7 +43,6 @@ public class Block : MonoBehaviour
     /// <param name="context">Input context</param>
     private void OnPressStarted(InputAction.CallbackContext context)
     {
-        if (GameController.Instance.State != GameState.Started) return;
         animator.SetBool(IsPressingAnimationTrigger, true);
     }
 
@@ -53,7 +52,6 @@ public class Block : MonoBehaviour
     /// <param name="context">Input context</param>
     private void OnPressCanceled(InputAction.CallbackContext context)
     {
-        if (GameController.Instance.State != GameState.Started) return;
         animator.SetBool(IsPressingAnimationTrigger, false);
     }
 

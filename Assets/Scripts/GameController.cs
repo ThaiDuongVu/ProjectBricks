@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
                 score = MaxScore;
                 return;
             }
-            
+
             score = value;
             scoreText.text = "Score: " + score;
 
@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
                 highScore = score;
                 PlayerPrefs.SetInt("HighScore", highScore);
 
-                if (!newHighScore) 
+                if (!newHighScore)
                 {
                     SendUIMessage("New high score!");
                     newHighScore = true;
@@ -80,6 +80,8 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void Pause()
     {
+        Time.timeScale = 0f;
+        
         pauseButton.gameObject.SetActive(false);
         forfeitButton.gameObject.SetActive(false);
         State = GameState.Paused;
@@ -93,6 +95,8 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void Resume()
     {
+        Time.timeScale = 1f;
+
         pauseButton.gameObject.SetActive(true);
         forfeitButton.gameObject.SetActive(true);
         State = GameState.Started;
@@ -106,6 +110,8 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void GameOver()
     {
+        Time.timeScale = 0f;
+
         pauseButton.gameObject.SetActive(false);
         forfeitButton.gameObject.SetActive(false);
         State = GameState.Over;

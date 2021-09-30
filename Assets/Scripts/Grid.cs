@@ -48,7 +48,7 @@ public class Grid : MonoBehaviour
         inputManager.Game.Direction.performed += OnDirectionPerformed;
         inputManager.Game.KeyDirection.performed += OnKeyDirectionPerformed;
         // Test game over functionality
-        inputManager.Debug.Test.performed += (InputAction.CallbackContext context) => { SaveGridData(); };
+        // inputManager.Debug.Test.performed += (InputAction.CallbackContext context) => { SaveGridData(); };
 
         inputManager.Enable();
     }
@@ -141,6 +141,10 @@ public class Grid : MonoBehaviour
             blocks.Add(block);
             occupiedGrid[gridSpawnPosition.x + 2, gridSpawnPosition.y + 2] = block;
         }
+
+        SaveGridData();
+        CheckGrid();
+        if (GridFull()) GameController.Instance.GameOver();
     }
 
     /// <summary>
@@ -156,6 +160,10 @@ public class Grid : MonoBehaviour
         block.GridPosition = gridSpawnPosition;
         blocks.Add(block);
         occupiedGrid[gridSpawnPosition.x + 2, gridSpawnPosition.y + 2] = block;
+
+        SaveGridData();
+        CheckGrid();
+        if (GridFull()) GameController.Instance.GameOver();
     }
 
     /// <summary>
@@ -177,9 +185,6 @@ public class Grid : MonoBehaviour
         swipeCooldown = MaxSwipeCooldown;
 
         StartCoroutine(SpawnRandomBlock());
-        SaveGridData();
-        CheckGrid();
-        if (GridFull()) GameController.Instance.GameOver();
     }
 
     /// <summary>
@@ -500,7 +505,7 @@ public class Grid : MonoBehaviour
                     occupiedGrid[x, y] = null;
                     continue;
                 }
-                
+
                 StartCoroutine(SpawnDefinedBlock(x, y, (PlayerPrefs.GetInt("Grid" + x.ToString() + y.ToString(), ((int)BlockType.None)))));
             }
         }

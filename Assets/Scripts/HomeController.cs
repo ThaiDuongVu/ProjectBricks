@@ -15,7 +15,7 @@ public class HomeController : MonoBehaviour
     private void Start()
     {
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0);
-        // EffectsController.Instance.SetDepthOfFieldEnabled(true);
+        EffectsController.Instance.SetDepthOfFieldEnabled(false);
     }
 
     /// <summary>
@@ -23,6 +23,8 @@ public class HomeController : MonoBehaviour
     /// </summary>
     public void Play()
     {
+        EffectsController.Instance.SetDepthOfFieldEnabled(true);
+        
         // Check if player has a game saved
         if (PlayerPrefs.GetInt("LastGameOver", 0) == 0)
         {
