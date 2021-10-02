@@ -73,6 +73,8 @@ public class GameController : MonoBehaviour
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         uiMessage.SetActive(false);
+
+        AdsController.Instance.ShowBanner();
     }
 
     /// <summary>
