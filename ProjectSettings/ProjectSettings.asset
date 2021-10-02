@@ -736,7 +736,14 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Analytics: 0
+    Build: 0
+    Collab: 0
+    Game Performance: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 1
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -750,7 +757,7 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 1
-  cloudProjectId: 
+  cloudProjectId: 3c3716e0-d5d0-4ee6-99d9-e1fd429b215b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames:
   - Very Low
@@ -759,8 +766,8 @@ PlayerSettings:
   - High
   - Very High
   - Ultra
-  projectName: 
-  organizationId: 
+  projectName: Bricks
+  organizationId: thaiduong299
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   virtualTexturingSupportEnabled: 0
