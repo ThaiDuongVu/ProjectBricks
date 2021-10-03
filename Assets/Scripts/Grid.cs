@@ -16,8 +16,7 @@ public class Grid : MonoBehaviour
     private static readonly Vector2Int initBlockNumbersRange = new Vector2Int(2, 4);
 
     private float swipeThreshold = 10f;
-    private const float MaxSwipeCooldown = 0.2f;
-    private float swipeCooldown = 0f;
+    private bool canSwipe = true;
 
     private const float SpawnDelay = 0.2f;
 
@@ -62,7 +61,7 @@ public class Grid : MonoBehaviour
     private void OnDirectionPerformed(InputAction.CallbackContext context)
     {
         if (GameController.Instance.State != GameState.Started) return;
-        if (swipeCooldown > 0f || context.ReadValue<Vector2>().magnitude < swipeThreshold) return;
+        if (!canSwipe || context.ReadValue<Vector2>().magnitude < swipeThreshold) return;
 
         SwipeBlocks(context.ReadValue<Vector2>().normalized);
     }
@@ -74,7 +73,7 @@ public class Grid : MonoBehaviour
     private void OnKeyDirectionPerformed(InputAction.CallbackContext context)
     {
         if (GameController.Instance.State != GameState.Started) return;
-        if (swipeCooldown > 0f) return;
+        if (!canSwipe) return;
 
         SwipeBlocks(context.ReadValue<Vector2>().normalized);
     }
@@ -115,15 +114,6 @@ public class Grid : MonoBehaviour
     }
 
     /// <summary>
-    /// Unity Event function.
-    /// Update once per frame.
-    /// </summary>
-    private void FixedUpdate()
-    {
-        if (swipeCooldown > 0f) swipeCooldown -= Time.fixedDeltaTime;
-    }
-
-    /// <summary>
     /// Spawn a new block at a random position on the grid.
     /// </summary>
     private IEnumerator SpawnRandomBlock()
@@ -145,6 +135,8 @@ public class Grid : MonoBehaviour
         SaveGridData();
         CheckGrid();
         if (GridFull()) GameController.Instance.GameOver();
+        
+        canSwipe = true;
     }
 
     /// <summary>
@@ -164,6 +156,8 @@ public class Grid : MonoBehaviour
         SaveGridData();
         CheckGrid();
         if (GridFull()) GameController.Instance.GameOver();
+
+        canSwipe = true;
     }
 
     /// <summary>
@@ -182,7 +176,7 @@ public class Grid : MonoBehaviour
 
         for (int x = 0; x < gridSize.x; x++) for (int y = 0; y < gridSize.y; y++) occupiedGrid[x, y] = null;
         foreach (var block in blocks) block.Move(direction, maxGridPosition, minGridPosition, gridBlockUnit, occupiedGrid);
-        swipeCooldown = MaxSwipeCooldown;
+        canSwipe = false;
 
         StartCoroutine(SpawnRandomBlock());
     }
