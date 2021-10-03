@@ -24,9 +24,16 @@ public class AdsController : MonoBehaviour, IUnityAdsInitializationListener, IUn
     private const string iOSGameId = "4387034";
     private bool testMode = false;
     private bool enablePerPlacementMode = false;
+
     private string gameId;
+
+    private const string AndroidBannerAdUnitId = "Banner_Android";
+    private const string iOSBannerAdUnitId = "Banner_iOS";
     private string bannerAdUnit;
-    private string displayAdUnit;
+
+    private const string AndroidInterstitialAdUnitId = "Interstitial_Android";
+    private const string iOSInterstitialAdUnitId = "Interstitial_iOS";
+    private string interstitialAdUnit;
 
     private BannerPosition bannerPosition = BannerPosition.TOP_CENTER;
 
@@ -37,6 +44,9 @@ public class AdsController : MonoBehaviour, IUnityAdsInitializationListener, IUn
     private void Awake()
     {
         gameId = (Application.platform == RuntimePlatform.Android) ? AndroidGameId : iOSGameId;
+        bannerAdUnit = (Application.platform == RuntimePlatform.Android) ? AndroidBannerAdUnitId : iOSBannerAdUnitId;
+        interstitialAdUnit = (Application.platform == RuntimePlatform.Android) ? AndroidInterstitialAdUnitId : iOSInterstitialAdUnitId;
+
         Advertisement.Initialize(gameId, testMode, enablePerPlacementMode, this);
         Advertisement.Banner.SetPosition(bannerPosition);
     }
@@ -83,13 +93,12 @@ public class AdsController : MonoBehaviour, IUnityAdsInitializationListener, IUn
     /// <summary>
     /// Display a full screen ad that can be closed by user.
     /// </summary>
-    public void ShowDisplayAd()
+    public void ShowInterstitialAd()
     {
         // Load ad first
-        Advertisement.Load(displayAdUnit, this);
-
+        Advertisement.Load(interstitialAdUnit, this);
         // Then show the ad
-        Advertisement.Show(displayAdUnit, this);
+        Advertisement.Show(interstitialAdUnit, this);
     }
 
     /// <summary>

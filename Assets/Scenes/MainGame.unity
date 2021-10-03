@@ -599,7 +599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 82667429, guid: 0aec975daa1e5654f8bc0a316ac1a276, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ShowDisplayAd
+      value: ShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 82667429, guid: 0aec975daa1e5654f8bc0a316ac1a276, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1027,7 +1027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 209269121084694057, guid: d2c0dc2ad759ebb428e05ba089ff29e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ShowDisplayAd
+      value: ShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 209269121084694057, guid: d2c0dc2ad759ebb428e05ba089ff29e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -1075,7 +1075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2145248307253442990, guid: d2c0dc2ad759ebb428e05ba089ff29e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ShowDisplayAd
+      value: ShowInterstitialAd
       objectReference: {fileID: 0}
     - target: {fileID: 2145248307253442990, guid: d2c0dc2ad759ebb428e05ba089ff29e2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
