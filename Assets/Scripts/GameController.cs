@@ -90,6 +90,8 @@ public class GameController : MonoBehaviour
 
         EffectsController.Instance.SetDepthOfFieldEnabled(true);
         pauseMenu.gameObject.SetActive(true);
+
+        AudioController.Instance.Play(AudioType.UIClick);
     }
 
     /// <summary>
@@ -105,6 +107,8 @@ public class GameController : MonoBehaviour
 
         EffectsController.Instance.SetDepthOfFieldEnabled(false);
         pauseMenu.gameObject.SetActive(false);
+
+        AudioController.Instance.Play(AudioType.UIClick);
     }
 
     /// <summary>
@@ -122,6 +126,7 @@ public class GameController : MonoBehaviour
         gameOverMenu.gameObject.SetActive(true);
 
         PlayerPrefs.SetInt("LastGameOver", 0);
+        AudioController.Instance.Play(AudioType.GameOver);
     }
 
     /// <summary>
@@ -132,5 +137,7 @@ public class GameController : MonoBehaviour
         uiMessage.SetActive(false);
         uiMessage.GetComponentInChildren<Text>().text = message;
         uiMessage.SetActive(true);
+
+        AudioController.Instance.Play(AudioType.UIMessage);
     }
 }

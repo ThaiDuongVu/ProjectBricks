@@ -53,6 +53,7 @@ public class HomeController : MonoBehaviour
             // Show a menu asking player if they want to continue their last game or start a new one
             mainMenu.gameObject.SetActive(false);
             continueMenu.gameObject.SetActive(true);
+            AudioController.Instance.Play(AudioType.UIClick);
         }
     }
 
@@ -72,6 +73,8 @@ public class HomeController : MonoBehaviour
         EffectsController.Instance.SetDepthOfFieldEnabled(true);
         mainMenu.gameObject.SetActive(false);
         tutorial.gameObject.SetActive(true);
+
+        AudioController.Instance.Play(AudioType.UIClick);
     }
 
     /// <summary>
@@ -82,5 +85,7 @@ public class HomeController : MonoBehaviour
         EffectsController.Instance.SetDepthOfFieldEnabled(false);
         mainMenu.gameObject.SetActive(true);
         tutorial.gameObject.SetActive(false);
+
+        AudioController.Instance.Play(AudioType.UIClick);
     }
 }

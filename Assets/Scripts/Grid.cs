@@ -135,7 +135,7 @@ public class Grid : MonoBehaviour
         SaveGridData();
         CheckGrid();
         if (GridFull()) GameController.Instance.GameOver();
-        
+
         canSwipe = true;
     }
 
@@ -167,17 +167,35 @@ public class Grid : MonoBehaviour
     private void SwipeBlocks(Vector2 value)
     {
         Vector2 direction = Vector2.zero;
+        AudioType audio = AudioType.SwipeDown;
 
-        if (value.x > Mathf.Sqrt(0.5f)) direction = Vector2.right;
-        else if (value.x < -Mathf.Sqrt(0.5f)) direction = Vector2.left;
+        if (value.x > Mathf.Sqrt(0.5f))
+        {
+            direction = Vector2.right;
+            audio = AudioType.SwipeRight;
+        }
+        else if (value.x < -Mathf.Sqrt(0.5f))
+        {
+            direction = Vector2.left;
+            audio = AudioType.SwipeLeft;
+        }
 
-        if (value.y > Mathf.Sqrt(0.5f)) direction = Vector2.up;
-        else if (value.y < -Mathf.Sqrt(0.5f)) direction = Vector2.down;
+        if (value.y > Mathf.Sqrt(0.5f)) 
+        {
+            direction = Vector2.up;
+            audio = AudioType.SwipeUp;
+        }
+        else if (value.y < -Mathf.Sqrt(0.5f)) 
+        {
+            direction = Vector2.down;
+            audio = AudioType.SwipeDown;
+        }
 
         for (int x = 0; x < gridSize.x; x++) for (int y = 0; y < gridSize.y; y++) occupiedGrid[x, y] = null;
         foreach (var block in blocks) block.Move(direction, maxGridPosition, minGridPosition, gridBlockUnit, occupiedGrid);
         canSwipe = false;
 
+        AudioController.Instance.Play(audio);
         StartCoroutine(SpawnRandomBlock());
     }
 
@@ -252,6 +270,8 @@ public class Grid : MonoBehaviour
 
                     GameController.Instance.Score += Match3Score;
                     scoreAdded += Match3Score;
+
+                    AudioController.Instance.Play(AudioType.DestroyMatch3);
                 }
             }
         }
@@ -281,6 +301,8 @@ public class Grid : MonoBehaviour
 
                     GameController.Instance.Score += Match3Score;
                     scoreAdded += Match3Score;
+
+                    AudioController.Instance.Play(AudioType.DestroyMatch3);
                 }
             }
         }
@@ -319,6 +341,8 @@ public class Grid : MonoBehaviour
 
                     GameController.Instance.Score += Match4Score;
                     scoreAdded += Match4Score;
+
+                    AudioController.Instance.Play(AudioType.DestroyMatch4);
                 }
             }
         }
@@ -350,6 +374,8 @@ public class Grid : MonoBehaviour
 
                     GameController.Instance.Score += Match4Score;
                     scoreAdded += Match4Score;
+
+                    AudioController.Instance.Play(AudioType.DestroyMatch4);
                 }
             }
         }
@@ -391,6 +417,8 @@ public class Grid : MonoBehaviour
 
                     GameController.Instance.Score += Match5Score;
                     scoreAdded += Match5Score;
+
+                    AudioController.Instance.Play(AudioType.DestroyMatch5);
                 }
             }
         }
@@ -425,6 +453,8 @@ public class Grid : MonoBehaviour
 
                     GameController.Instance.Score += Match5Score;
                     scoreAdded += Match5Score;
+
+                    AudioController.Instance.Play(AudioType.DestroyMatch5);
                 }
             }
         }
@@ -462,6 +492,8 @@ public class Grid : MonoBehaviour
 
                     GameController.Instance.Score += Grid4Score;
                     scoreAdded += Grid4Score;
+
+                    AudioController.Instance.Play(AudioType.DestroyGrid4);
                 }
             }
         }

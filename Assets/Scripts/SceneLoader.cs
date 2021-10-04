@@ -65,6 +65,8 @@ public class SceneLoader : MonoBehaviour
     {
         Time.timeScale = 1f;
         sceneToLoad = scene;
+
+        AudioController.Instance.Play(AudioType.UIClick);
         StartCoroutine(Load());
     }
 
@@ -82,6 +84,7 @@ public class SceneLoader : MonoBehaviour
     /// </summary>
     public static void Quit()
     {
+        AudioController.Instance.Play(AudioType.UIClick);
         Application.Quit();
     }
 }

@@ -37,6 +37,7 @@ public class TutorialController : MonoBehaviour
             tutorialElements[tutorialProgress].SetActive(false);
             tutorialProgress++;
             tutorialElements[tutorialProgress].SetActive(true);
+            AudioController.Instance.Play(AudioType.UIClick);
         }
         else
         {
