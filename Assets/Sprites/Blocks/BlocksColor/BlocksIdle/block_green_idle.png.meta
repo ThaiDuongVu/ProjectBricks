@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: -2985174155664194546
     second: block_green_idle_1
+  - first:
+      213: -4921932591307196820
+    second: block_green_idle_2
+  - first:
+      213: 8966902032350423799
+    second: block_green_idle_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -146,6 +152,48 @@ TextureImporter:
       bones: []
       spriteID: e0485faebe78296d0800000000000000
       internalID: -2985174155664194546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block_green_idle_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6677beb268c1bbb0800000000000000
+      internalID: -4921932591307196820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: block_green_idle_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7faa9f5c3e5d07c70800000000000000
+      internalID: 8966902032350423799
       vertices: []
       indices: 
       edges: []
