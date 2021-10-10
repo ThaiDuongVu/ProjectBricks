@@ -1,33 +1,4 @@
 particle
 camera shake
 time trial
-
-trailer script:
-
-starting montage (intense music): 10 - 15s -> zooming in black screen while music volume down.
-stop music and show black screen for 1s.
-slowly zoom out to show blue brick idling, play calm music. "hmm"
-swipe right, another blue brick appear. "oh hey". "you're also blue"
-swipe up, another blue brick appear. "hello there".
-swipe down, 3 of them line up and disappear.
-other bricks started appearing and being swiped -> zooming out and fade to title.
-announcement text.
-
-Brazilian Street Fight by Punch Deck | https://soundcloud.com/punch-deck
-Music promoted by https://www.chosic.com/free-music/all/
-Creative Commons Attribution 3.0 Unported License
-https://creativecommons.org/licenses/by/3.0/deed.en_US 
-
-Adventure by Alexander Nakarada | https://www.serpentsoundstudios.com
-Music promoted by https://www.chosic.com/free-music/all/
-Attribution 4.0 International (CC BY 4.0)
-https://creativecommons.org/licenses/by/4.0/
-
-promotion check list:
-// icon 512x512
-// trailer 30s -> 1m
-short description
-full description
-feature graphic 1024x500
-// phone screenshots
  
