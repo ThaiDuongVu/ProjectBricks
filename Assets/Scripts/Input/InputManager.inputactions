@@ -269,7 +269,7 @@
             "id": "37e3f1ac-69ff-466b-8f55-19d37182dee7",
             "actions": [
                 {
-                    "name": "Test",
+                    "name": "Screenshot",
                     "type": "Button",
                     "id": "7522b3a4-26ba-4fe4-b20b-1efea37ff40c",
                     "expectedControlType": "Button",
@@ -285,7 +285,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Test",
+                    "action": "Screenshot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

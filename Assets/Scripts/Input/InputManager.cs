@@ -282,7 +282,7 @@ public class @InputManager : IInputActionCollection, IDisposable
             ""id"": ""37e3f1ac-69ff-466b-8f55-19d37182dee7"",
             ""actions"": [
                 {
-                    ""name"": ""Test"",
+                    ""name"": ""Screenshot"",
                     ""type"": ""Button"",
                     ""id"": ""7522b3a4-26ba-4fe4-b20b-1efea37ff40c"",
                     ""expectedControlType"": ""Button"",
@@ -298,7 +298,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Test"",
+                    ""action"": ""Screenshot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -348,7 +348,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Game_KeyDirection = m_Game.FindAction("KeyDirection", throwIfNotFound: true);
         // Debug
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
-        m_Debug_Test = m_Debug.FindAction("Test", throwIfNotFound: true);
+        m_Debug_Screenshot = m_Debug.FindAction("Screenshot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -447,12 +447,12 @@ public class @InputManager : IInputActionCollection, IDisposable
     // Debug
     private readonly InputActionMap m_Debug;
     private IDebugActions m_DebugActionsCallbackInterface;
-    private readonly InputAction m_Debug_Test;
+    private readonly InputAction m_Debug_Screenshot;
     public struct DebugActions
     {
         private @InputManager m_Wrapper;
         public DebugActions(@InputManager wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Test => m_Wrapper.m_Debug_Test;
+        public InputAction @Screenshot => m_Wrapper.m_Debug_Screenshot;
         public InputActionMap Get() { return m_Wrapper.m_Debug; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -462,16 +462,16 @@ public class @InputManager : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_DebugActionsCallbackInterface != null)
             {
-                @Test.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnTest;
-                @Test.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnTest;
-                @Test.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnTest;
+                @Screenshot.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnScreenshot;
+                @Screenshot.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnScreenshot;
+                @Screenshot.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnScreenshot;
             }
             m_Wrapper.m_DebugActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Test.started += instance.OnTest;
-                @Test.performed += instance.OnTest;
-                @Test.canceled += instance.OnTest;
+                @Screenshot.started += instance.OnScreenshot;
+                @Screenshot.performed += instance.OnScreenshot;
+                @Screenshot.canceled += instance.OnScreenshot;
             }
         }
     }
@@ -511,6 +511,6 @@ public class @InputManager : IInputActionCollection, IDisposable
     }
     public interface IDebugActions
     {
-        void OnTest(InputAction.CallbackContext context);
+        void OnScreenshot(InputAction.CallbackContext context);
     }
 }

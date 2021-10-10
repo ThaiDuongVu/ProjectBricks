@@ -1,3 +1,7 @@
+particle
+camera shake
+time trial
+
 trailer script:
 
 starting montage (intense music): 10 - 15s -> zooming in black screen while music volume down.
@@ -20,10 +24,10 @@ Attribution 4.0 International (CC BY 4.0)
 https://creativecommons.org/licenses/by/4.0/
 
 promotion check list:
-icon 512x512
-trailer 30s -> 1m
+// icon 512x512
+// trailer 30s -> 1m
 short description
 full description
 feature graphic 1024x500
-phone screenshots
+// phone screenshots
  

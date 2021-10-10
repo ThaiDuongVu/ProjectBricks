@@ -46,8 +46,6 @@ public class Grid : MonoBehaviour
         // Handle direction input
         inputManager.Game.Direction.performed += OnDirectionPerformed;
         inputManager.Game.KeyDirection.performed += OnKeyDirectionPerformed;
-        // Test game over functionality
-        inputManager.Debug.Test.performed += (InputAction.CallbackContext context) => { PlayerPrefs.DeleteAll(); };
 
         inputManager.Enable();
     }
@@ -180,12 +178,12 @@ public class Grid : MonoBehaviour
             audio = AudioType.SwipeLeft;
         }
 
-        if (value.y > Mathf.Sqrt(0.5f)) 
+        if (value.y > Mathf.Sqrt(0.5f))
         {
             direction = Vector2.up;
             audio = AudioType.SwipeUp;
         }
-        else if (value.y < -Mathf.Sqrt(0.5f)) 
+        else if (value.y < -Mathf.Sqrt(0.5f))
         {
             direction = Vector2.down;
             audio = AudioType.SwipeDown;

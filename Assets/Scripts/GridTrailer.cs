@@ -34,7 +34,6 @@ public class GridTrailer : MonoBehaviour
     private string[] messageSet3 = new string[] { "Incredible!", "Unbelievable!" };
 
     private int trailerProgress;
-    private int screenshotNumber;
 
     private InputManager inputManager;
 
@@ -49,11 +48,6 @@ public class GridTrailer : MonoBehaviour
         // Handle direction input
         inputManager.Game.Direction.performed += OnDirectionPerformed;
         inputManager.Game.KeyDirection.performed += OnKeyDirectionPerformed;
-        inputManager.Debug.Test.performed += (InputAction.CallbackContext context) =>
-        {
-            ScreenCapture.CaptureScreenshot("screenshot" + screenshotNumber);
-            screenshotNumber++;
-        };
 
         inputManager.Enable();
     }
