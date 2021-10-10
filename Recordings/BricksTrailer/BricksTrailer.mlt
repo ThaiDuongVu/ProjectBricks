@@ -1,0 +1,293 @@
+<?xml version="1.0" standalone="no"?>
+<mlt LC_NUMERIC="C" version="7.1.0" title="Shotcut version 21.09.20" producer="main_bin">
+  <profile description="automatic" width="720" height="1280" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="9" display_aspect_den="16" frame_rate_num="60" frame_rate_den="1" colorspace="709"/>
+  <chain id="chain0" out="00:00:25.350">
+    <property name="length">00:00:25.367</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Recordings/starting_montage.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="shotcut:hash">cd0305166ca3234021c5be2598b7ab91</property>
+    <property name="ignore_points">0</property>
+    <property name="creation_time">2021-10-07T21:15:13</property>
+    <property name="xml">was here</property>
+  </chain>
+  <chain id="chain1" out="00:04:37.317">
+    <property name="length">00:04:37.333</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Music/Adventure-320bit.mp3</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">d9eaddc99e76384f52408177added54e</property>
+  </chain>
+  <chain id="chain2" out="00:03:54.167">
+    <property name="length">00:03:54.183</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Music/punch-deck-brazilian-street-fight.mp3</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">24527cc0acc01006661b7e1e655c120e</property>
+  </chain>
+  <chain id="chain3" out="00:01:01.800">
+    <property name="length">00:01:01.817</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Recordings/take2.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">3ea232701f3e7475fd26b44f46a46905</property>
+  </chain>
+  <chain id="chain4" out="00:00:19.967">
+    <property name="length">00:00:19.983</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Recordings/home.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">fb1872f28cc7165244a27682b2be389f</property>
+  </chain>
+  <playlist id="main_bin">
+    <property name="xml_retain">1</property>
+    <entry producer="chain0" in="00:00:00.000" out="00:00:25.350"/>
+    <entry producer="chain1" in="00:00:00.000" out="00:04:37.317"/>
+    <entry producer="chain2" in="00:00:00.000" out="00:03:54.167"/>
+    <entry producer="chain3" in="00:00:00.000" out="00:01:01.800"/>
+    <entry producer="chain4" in="00:00:00.000" out="00:00:19.967"/>
+  </playlist>
+  <producer id="black" in="00:00:00.000" out="00:01:34.133">
+    <property name="length">00:01:34.150</property>
+    <property name="eof">pause</property>
+    <property name="resource">0</property>
+    <property name="aspect_ratio">1</property>
+    <property name="mlt_service">color</property>
+    <property name="mlt_image_format">rgba</property>
+    <property name="set.test_audio">0</property>
+  </producer>
+  <playlist id="background">
+    <entry producer="black" in="00:00:00.000" out="00:01:34.133"/>
+  </playlist>
+  <chain id="chain5" out="00:00:25.350">
+    <property name="length">00:00:25.367</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Recordings/starting_montage.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">-1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="shotcut:hash">cd0305166ca3234021c5be2598b7ab91</property>
+    <property name="ignore_points">0</property>
+    <property name="creation_time">2021-10-07T21:15:13</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:caption">starting_montage.mp4</property>
+    <property name="shotcut:defaultAudioIndex">1</property>
+    <filter id="filter0" in="00:00:15.000" out="00:00:25.333">
+      <property name="background">color:#00000000</property>
+      <property name="mlt_service">affine</property>
+      <property name="shotcut:filter">affineSizePosition</property>
+      <property name="transition.fill">1</property>
+      <property name="transition.distort">0</property>
+      <property name="transition.rect">00:00:00.000=0 0 720 1280 1;00:00:10.350=359.64 639.5 0.72 1 1</property>
+      <property name="transition.valign">middle</property>
+      <property name="transition.halign">center</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="transition.threads">0</property>
+    </filter>
+  </chain>
+  <chain id="chain6" out="00:01:01.800">
+    <property name="length">00:01:01.817</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Recordings/take2.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">-1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">3ea232701f3e7475fd26b44f46a46905</property>
+    <property name="shotcut:caption">take2.mp4</property>
+    <property name="shotcut:defaultAudioIndex">1</property>
+    <filter id="filter1" out="00:00:06.667">
+      <property name="background">color:#00000000</property>
+      <property name="mlt_service">affine</property>
+      <property name="shotcut:filter">affineSizePosition</property>
+      <property name="transition.fill">1</property>
+      <property name="transition.distort">0</property>
+      <property name="transition.rect">00:00:00.000=359.64 639.5 0.72 1 1;00:00:06.667=0 0 720 1280 1;00:00:06.683=</property>
+      <property name="transition.valign">middle</property>
+      <property name="transition.halign">center</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="transition.threads">0</property>
+    </filter>
+    <filter id="filter2" in="00:00:39.683" out="00:00:49.650">
+      <property name="background">color:#00000000</property>
+      <property name="mlt_service">affine</property>
+      <property name="shotcut:filter">affineSizePosition</property>
+      <property name="transition.fill">1</property>
+      <property name="transition.distort">0</property>
+      <property name="transition.rect">00:00:00.000=0 0 720 1280 1;00:00:09.967=359.64 639.5 0.72 1 1;00:00:09.983=</property>
+      <property name="transition.valign">middle</property>
+      <property name="transition.halign">center</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="transition.threads">0</property>
+    </filter>
+  </chain>
+  <chain id="chain7" out="00:00:19.967">
+    <property name="length">00:00:19.983</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Recordings/home.mp4</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">fb1872f28cc7165244a27682b2be389f</property>
+    <property name="shotcut:caption">home.mp4</property>
+    <filter id="filter3" out="00:00:19.133">
+      <property name="start">1</property>
+      <property name="level">00:00:00.000=0;00:00:03.000=1</property>
+      <property name="mlt_service">brightness</property>
+      <property name="shotcut:filter">fadeInBrightness</property>
+      <property name="alpha">1</property>
+      <property name="shotcut:animIn">00:00:03.017</property>
+    </filter>
+    <filter id="filter4" out="00:00:19.133">
+      <property name="argument"></property>
+      <property name="geometry">00:00:00.000=0 1280 720 1280 1;00:00:05.000=0 540 720 1280 1</property>
+      <property name="family">Sans</property>
+      <property name="size">48</property>
+      <property name="weight">400</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">0x000000ff</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">0x00000000</property>
+      <property name="pad">0</property>
+      <property name="halign">left</property>
+      <property name="valign">top</property>
+      <property name="outline">0</property>
+      <property name="pixel_ratio">1</property>
+      <property name="mlt_service">qtext</property>
+      <property name="shotcut:filter">richText</property>
+      <property name="html">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Kenney Pixel'; font-size:72pt; font-weight:600; color:#ffffff;&quot;&gt;Download now on Google Play&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+    </filter>
+  </chain>
+  <playlist id="playlist0">
+    <property name="shotcut:video">1</property>
+    <property name="shotcut:name">V1</property>
+    <entry producer="chain5" in="00:00:00.000" out="00:00:25.317"/>
+    <entry producer="chain6" in="00:00:00.000" out="00:00:49.650"/>
+    <entry producer="chain7" in="00:00:00.000" out="00:00:19.133"/>
+  </playlist>
+  <chain id="chain8" out="00:03:54.167">
+    <property name="length">00:03:54.183</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Music/punch-deck-brazilian-street-fight.mp3</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">24527cc0acc01006661b7e1e655c120e</property>
+    <property name="shotcut:caption">punch-deck-brazilian-street-fight.mp3</property>
+    <filter id="filter5" out="00:00:25.317">
+      <property name="window">75</property>
+      <property name="max_gain">20dB</property>
+      <property name="level">00:00:20.333=0;00:00:25.317=-60</property>
+      <property name="mlt_service">volume</property>
+      <property name="shotcut:filter">fadeOutVolume</property>
+      <property name="shotcut:animOut">00:00:05.000</property>
+    </filter>
+  </chain>
+  <chain id="chain9" out="00:04:37.317">
+    <property name="length">00:04:37.333</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Users/Duong Vu/Documents/Projects/ProjectBricks/Music/Adventure-320bit.mp3</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">-1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:hash">d9eaddc99e76384f52408177added54e</property>
+    <property name="shotcut:caption">Adventure-320bit.mp3</property>
+  </chain>
+  <playlist id="playlist1">
+    <property name="shotcut:audio">1</property>
+    <property name="shotcut:name">A1</property>
+    <entry producer="chain8" in="00:00:00.000" out="00:00:25.317"/>
+    <entry producer="chain9" in="00:00:00.000" out="00:01:08.800"/>
+  </playlist>
+  <playlist id="playlist2">
+    <property name="shotcut:audio">1</property>
+    <property name="shotcut:name">A2</property>
+    <blank length="00:00:00.017"/>
+  </playlist>
+  <tractor id="tractor0" title="Shotcut version 21.09.20" in="00:00:00.000" out="00:01:34.133">
+    <property name="shotcut">1</property>
+    <property name="shotcut:projectAudioChannels">2</property>
+    <property name="shotcut:projectFolder">1</property>
+    <property name="shotcut:trackHeight">50</property>
+    <property name="shotcut:scaleFactor">0.758213</property>
+    <track producer="background"/>
+    <track producer="playlist0"/>
+    <track producer="playlist1" hide="video"/>
+    <track producer="playlist2" hide="video"/>
+    <transition id="transition0">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition1">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="version">0.9</property>
+      <property name="mlt_service">frei0r.cairoblend</property>
+      <property name="threads">0</property>
+      <property name="disable">1</property>
+    </transition>
+    <transition id="transition2">
+      <property name="a_track">0</property>
+      <property name="b_track">2</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition3">
+      <property name="a_track">0</property>
+      <property name="b_track">3</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+  </tractor>
+</mlt>
