@@ -492,6 +492,7 @@ public class Grid : MonoBehaviour
                     scoreAdded += Grid4Score;
 
                     AudioController.Instance.Play(AudioType.DestroyGrid4);
+                    // CameraShaker.Instance.Shake(CameraShakeMode.Hard);
                 }
             }
         }

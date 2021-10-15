@@ -122,6 +122,7 @@ public class Block : MonoBehaviour
         animator.SetTrigger(ExplodeAnimationTrigger);
 
         yield return new WaitForSeconds(ExplosionDelay);
+        CameraShaker.Instance.Shake(CameraShakeMode.Light);
         Destroy(gameObject);
     }
 }
